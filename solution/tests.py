@@ -92,5 +92,17 @@ class ChallengeTestCase(unittest.TestCase):
         self.assertEqual(expected, actual)
 
 
+class FirstOptionalBonusTestCase(unittest.TestCase):
+    """
+    Contains test for first optional bonus challenge
+    """
+
+    def test_sentence(self):
+        expected = "Jgore Vxumxgsskx!"
+        actual = caesar("Daily Programmer!", 6)
+
+        self.assertEqual(expected, actual)
+
+
 if __name__ == '__main__':
     unittest.main()

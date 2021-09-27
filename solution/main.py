@@ -1,6 +1,7 @@
 import string
 
 alphabet_list = list(string.ascii_lowercase)
+alphabet_list_uppercase = list(string.ascii_uppercase)
 
 
 def warmup(letter: str, shift_by: int) -> str:
@@ -11,10 +12,17 @@ def warmup(letter: str, shift_by: int) -> str:
     :param shift_by: shift modulo
     :return: alphabet letter shifted by modulo parameter
     """
+    if letter in string.whitespace or letter in string.punctuation:
+        return letter
 
-    index_original = alphabet_list.index(letter)
-    index_new = (index_original + shift_by) % 26
-    result = alphabet_list[index_new]
+    if letter.isupper():
+        index_original = alphabet_list_uppercase.index(letter)
+        index_new = (index_original + shift_by) % 26
+        result = alphabet_list_uppercase[index_new]
+    else:
+        index_original = alphabet_list.index(letter)
+        index_new = (index_original + shift_by) % 26
+        result = alphabet_list[index_new]
 
     return result
 
